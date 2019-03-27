@@ -10,12 +10,12 @@ import com.wendreof.retrofit.*
 
 class WebClient {
 
-    fun list(listResponse: ListResponse) {
+    fun list(listResponse: CallbackResponse<List<Product>>) {
         val call = RetrofitInitializer().service().list()
-        call.enqueue(object: Callback<List<Product>?> {
+        call.enqueue(object : Callback<List<Product>?> {
             override fun onResponse(call: Call<List<Product>?>?,
-                                    response: Response<List<Product>?>?) {
-                response?.body()?.let{
+                                    response: Response<List<Product>?>?){
+                response?.body()?.let {
                     val products: List<Product> = it
                     listResponse.success(products)
                 }
@@ -27,4 +27,19 @@ class WebClient {
             }
         })
     }
-}
+        fun insert(product: Product, listResponse: CallbackResponse<Product>){
+            val call = RetrofitInitializer().service().insert(product)
+            call.enqueue(object: Callback<Product?> {
+                override fun onResponse(call: Call<Product?>?, response: Response<Product?>?) {
+                    response?.body()?.let{
+                        val product: Product = it
+                        listResponse.success(product)
+                    }
+                }
+
+                override fun onFailure(call: Call<Product?>?, t: Throwable?) {
+
+                }
+            })
+        }
+    }
