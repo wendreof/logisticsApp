@@ -8,7 +8,9 @@ import android.util.Log
 import android.widget.Toast
 import com.wendreof.R
 import com.wendreof.model.Product
+import com.wendreof.retrofit.ListResponse
 import com.wendreof.retrofit.RetrofitInitializer
+import com.wendreof.retrofit.service.WebClient
 import kotlinx.android.synthetic.main.activity_list.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,20 +22,9 @@ class ListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
-        val call = RetrofitInitializer().service().list()
-        call.enqueue(object: Callback<List<Product>?> {
-            override fun onResponse(call: Call<List<Product>?>?,
-                                    response: Response<List<Product>?>?) {
-                response?.body()?.let{
-                    val products: List<Product> = it
-                    configureList(products)
-                }
-            }
-
-            override fun onFailure(call: Call<List<Product>?>?,
-                                   t: Throwable?) {
-                Log.e("onFailure error", t?.message)
-                //Toast.makeText(applicationContext,"onFailure error", message, Toast.LENGTH_LONG).show
+        WebClient().list(object: ListResponse{
+            override fun success(products: List<Product>){
+                configureList(products)
             }
         })
     }
