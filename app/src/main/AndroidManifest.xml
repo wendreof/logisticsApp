@@ -3,6 +3,9 @@
           xmlns:dist="http://schemas.android.com/apk/distribution"
           package="com.wendreof">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <dist:module dist:instant="true"/>
 
     <application
