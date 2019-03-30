@@ -17,53 +17,53 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
-                tools:text="Remetente" />
+                tools:text="Remetente"/>
 
         <TextView
                 android:id="@+id/item_recebedor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                tools:text="Recebedor" />
+                tools:text="Recebedor"/>
         <TextView
                 android:id="@+id/item_descricao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                tools:text="Descrição" />
+                tools:text="Descrição"/>
 
         <TextView
                 android:id="@+id/item_assinatura"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                tools:text="Assinatura" />
+                tools:text="Assinatura"/>
         <TextView
                 android:id="@+id/item_local"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                tools:text="Local" />
+                tools:text="Local"/>
 
         <TextView
                 android:id="@+id/item_dataRecebimento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                tools:text="dataRecebimento" />
+                tools:text="dataRecebimento"/>
         <TextView
                 android:id="@+id/item_codBarras"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                tools:text="dataRecebimento" />
+                tools:text="dataRecebimento"/>
 
         <TextView
                 android:id="@+id/item_quantidade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                tools:text="Quantidade" />
+                tools:text="Quantidade"/>
 
     </LinearLayout>
 

@@ -1,4 +1,4 @@
-package com.wendreof.ui
+package com.wendreof.ui.adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -10,31 +10,29 @@ import com.wendreof.R
 import com.wendreof.model.Product
 import kotlinx.android.synthetic.main.product_item.view.*
 
-class ListAdapter(private val products: List<Product>,
-                  private val context: Context): Adapter<ListAdapter.viewHolder> (){
+class ListAdapter(
+    private val products: List<Product>,
+    private val context: Context
+) : Adapter<ListAdapter.viewHolder>() {
+
+    override fun onBindViewHolder(holder: viewHolder, position: Int) {
+        val product = products[position]
+        holder?.let {
+            it.bindView(product)
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.product_item, parent, false)
         return viewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: viewHolder, position: Int) {
-        val product = products[position]
-
-        holder?.let{
-            it.bindView(product)
-        }
-
-
-    }
-
-
     override fun getItemCount(): Int {
         return products.size
     }
 
-    class viewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        fun bindView(product: Product){
+    class viewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bindView(product: Product) {
             val remetente = itemView.item_remetente
             val recebedor = itemView.item_recebedor
             val descricao = itemView.item_descricao
@@ -53,8 +51,6 @@ class ListAdapter(private val products: List<Product>,
             codBarras.text = product.codBarras
             quantidade.text = product.quantidade
         }
-
     }
-
 }
 
