@@ -1,7 +1,7 @@
 package com.wendreof.model
 
 data class Product(
-    val id: Int =0,
+    val id: Int = 0,
     val remetente: String,
     val recebedor: String,
     val descricao: String,

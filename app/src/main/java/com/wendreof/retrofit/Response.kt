@@ -1,7 +1,6 @@
 package com.wendreof.retrofit
 
-import com.wendreof.model.Product
-
-interface CallbackResponse<T> {
+interface CallbackResponse<T>
+{
     fun success(response: T)
 }

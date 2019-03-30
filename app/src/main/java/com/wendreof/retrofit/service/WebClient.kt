@@ -9,13 +9,16 @@ class WebClient {
     fun list(
         success: (products: List<Product>) -> Unit,
         failure: (throwable: Throwable) -> Unit
-    ) {
+    )
+    {
         val call = RetrofitInitializer().service().list()
-        call.enqueue(callback({ response ->
+        call.enqueue(callback(
+            { response ->
             response?.body()?.let {
                 success(it)
             }
-        }, { throwable ->
+        },
+            { throwable ->
             throwable?.let {
                 failure(it)
             }
@@ -25,13 +28,15 @@ class WebClient {
     fun insert(
         product: Product, success: (product: Product) -> Unit,
         failure: (throwable: Throwable) -> Unit
-    ) {
+    )
+    {
         val call = RetrofitInitializer().service().insert(product)
         call.enqueue(callback({ response ->
             response?.body()?.let {
                 success(it)
             }
-        }, { throwable ->
+        },
+            { throwable ->
             throwable?.let {
                 failure(it)
             }
@@ -45,7 +50,8 @@ class WebClient {
             response?.body()?.let {
                 success(it)
             }
-        }, { throwable ->
+        },
+            { throwable ->
             throwable?.let {
                 failure(it)
             }

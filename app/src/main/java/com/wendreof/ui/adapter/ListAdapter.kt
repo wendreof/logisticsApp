@@ -14,9 +14,10 @@ import kotlinx.android.synthetic.main.product_item.view.*
 class ListAdapter(
     private val products: List<Product>,
     private val context: Context,
-    private val onItemClickListener: (product: Product, position: Int) -> Unit) : Adapter<ListAdapter.viewHolder>() {
-
-    override fun onBindViewHolder(holder: viewHolder, position: Int) {
+    private val onItemClickListener: (product: Product, position: Int) -> Unit) : Adapter<ListAdapter.viewHolder>()
+{
+    override fun onBindViewHolder(holder: viewHolder, position: Int)
+    {
         val product = products[position]
         holder?.let {
             it.bindView(product)
@@ -26,16 +27,19 @@ class ListAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder
+    {
         val view = LayoutInflater.from(context).inflate(R.layout.product_item, parent, false)
         return viewHolder(view)
     }
 
-    override fun getItemCount(): Int {
+    override fun getItemCount(): Int
+    {
         return products.size
     }
 
-    class viewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class viewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    {
         fun bindView(product: Product) {
             val remetente = itemView.item_remetente
             val recebedor = itemView.item_recebedor

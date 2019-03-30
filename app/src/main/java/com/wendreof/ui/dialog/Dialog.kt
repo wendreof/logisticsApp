@@ -13,7 +13,8 @@ import kotlinx.android.synthetic.main.form.view.*
 
 class Dialog(
     private val viewGroup: ViewGroup,
-    private val context: Context) {
+    private val context: Context)
+{
 
     private val createdView = createView()
     private val mRemetente = createdView.form_remetente
@@ -26,7 +27,8 @@ class Dialog(
     private val mQuantidade = createdView.form_quantidade
 
 
-    fun alter(product: Product, altered: (alteredProduct: Product) -> Unit) {
+    fun alter(product: Product, altered: (alteredProduct: Product) -> Unit)
+    {
         mRemetente.setText(product.remetente)
         mRecebedor.setText(product.recebedor)
         mDescricao.setText(product.descricao)
@@ -67,7 +69,8 @@ class Dialog(
             .show()
     }
 
-    fun add(created: (created: Product) -> Unit) {
+    fun add(created: (created: Product) -> Unit)
+    {
         AlertDialog.Builder(context)
             .setTitle("Adicionar Produto")
             .setView(createdView)
@@ -99,7 +102,8 @@ class Dialog(
             .show()
     }
 
-    private fun createView(): View {
+    private fun createView(): View
+    {
         return LayoutInflater.from(context)
             .inflate(
                 R.layout.form,

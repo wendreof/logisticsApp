@@ -4,7 +4,8 @@ import com.wendreof.model.Product
 import retrofit2.Call
 import retrofit2.http.*
 
-interface Service {
+interface Service
+{
     @GET("products")
     fun list(): Call<List<Product>>
 
