@@ -8,7 +8,7 @@ import android.widget.Toast
 import com.wendreof.R
 import com.wendreof.model.Product
 import com.wendreof.retrofit.service.WebClient
-import com.wendreof.ui.dialog.AddDialog
+import com.wendreof.ui.dialog.Dialog
 import com.wendreof.ui.adapter.ListAdapter
 import kotlinx.android.synthetic.main.activity_list.*
 
@@ -28,8 +28,8 @@ class ListActivity : AppCompatActivity() {
         })
 
         fab_add.setOnClickListener {
-            AddDialog(window.decorView as ViewGroup, this)
-                .show {
+            Dialog(window.decorView as ViewGroup, this)
+                .add {
                     products.add(it)
                     configureList()
                 }
@@ -38,7 +38,12 @@ class ListActivity : AppCompatActivity() {
 
     private fun configureList() {
         val recyclerView = list_recyclerview
-        recyclerView.adapter = ListAdapter(products, this)
+        recyclerView.adapter = ListAdapter(products, this){product, position ->
+            Dialog(window.decorView as ViewGroup, this).alter(product){
+                products[position] = it
+                configureList()
+            }
+        }
         val layoutManager = StaggeredGridLayoutManager(
             2, StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager = layoutManager

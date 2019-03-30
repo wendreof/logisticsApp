@@ -2,9 +2,7 @@ package com.wendreof.retrofit.service
 
 import com.wendreof.model.Product
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface Service {
     @GET("products")
@@ -12,4 +10,7 @@ interface Service {
 
     @POST("products")
     fun insert(@Body product: Product): Call<Product>
+
+    @PUT("products/{id}")
+    fun alter(@Body procuct: Product, @Path("id") id: Int): Call<Product>
 }

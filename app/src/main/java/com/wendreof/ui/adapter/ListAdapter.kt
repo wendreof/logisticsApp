@@ -6,19 +6,23 @@ import android.support.v7.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import com.wendreof.R
 import com.wendreof.model.Product
 import kotlinx.android.synthetic.main.product_item.view.*
 
 class ListAdapter(
     private val products: List<Product>,
-    private val context: Context
-) : Adapter<ListAdapter.viewHolder>() {
+    private val context: Context,
+    private val onItemClickListener: (product: Product, position: Int) -> Unit) : Adapter<ListAdapter.viewHolder>() {
 
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
         val product = products[position]
         holder?.let {
             it.bindView(product)
+            it.itemView.setOnClickListener {
+                onItemClickListener(product, position)
+            }
         }
     }
 
@@ -50,7 +54,14 @@ class ListAdapter(
             dataRecebimento.text = product.dataRecebimento
             codBarras.text = product.codBarras
             quantidade.text = product.quantidade
+
         }
+
+       /*fun onClick(product: Product, execute: (product: Product) -> Unit) {
+            itemView.setOnClickListener {
+                execute(product)
+            }
+        } */
     }
 }
 

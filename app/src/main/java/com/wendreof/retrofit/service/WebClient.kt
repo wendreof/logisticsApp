@@ -37,4 +37,19 @@ class WebClient {
             }
         }))
     }
+
+    fun alter(product: Product, success: (product: Product) -> Unit,
+              failure: (throwable: Throwable) -> Unit) {
+        val call = RetrofitInitializer().service().alter(product, product.id)
+        call.enqueue(callback({ response ->
+            response?.body()?.let {
+                success(it)
+            }
+        }, { throwable ->
+            throwable?.let {
+                failure(it)
+            }
+        }))
+    }
+
 }
