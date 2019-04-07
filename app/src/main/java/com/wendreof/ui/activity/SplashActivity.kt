@@ -28,27 +28,10 @@ class SplashActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        editLocation.isEnabled = false
+        editImagem.isEnabled = false
+
         myClipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
-        editLocation.setText("Obtendo localização exata.")
-        editLocation.setText("Obtendo localização exata..")
-        editLocation.setText("Obtendo localização exata...")
-        editLocation.setText("Obtendo localização exata.")
-        editLocation.setText("Obtendo localização exata..")
-        editLocation.setText("Obtendo localização exata...")
-        editLocation.setText("Obtendo localização exata.")
-        editLocation.setText("Obtendo localização exata..")
-        editLocation.setText("Obtendo localização exata...")
-
-    }
-
-    fun iniciarTelefone()
-    {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
-        {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CALL_PHONE), 1)
-        }
-        //else
-        //  solicitarTelefone();
     }
 
     fun iniciarGPS(v: View)
@@ -61,7 +44,9 @@ class SplashActivity : AppCompatActivity()
         else
         {
             solicitarGPS()
+            showMSG("Obtendo a localização exata. Por favor, aguarde!")
         }
+
         btnAllowGPS.isEnabled = false
     }
 
@@ -101,6 +86,7 @@ class SplashActivity : AppCompatActivity()
 
             val locationListener = object : LocationListener
             {
+
                 override fun onLocationChanged(location: Location)
                 {
                     apresentar(location)
@@ -110,6 +96,7 @@ class SplashActivity : AppCompatActivity()
                 override fun onProviderDisabled(provider: String) {}
             }
             locationManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 0, 0f, locationListener )
+            showMSG("Busca pela localização concluída com sucesso!")
         }
         catch ( ex: SecurityException )
         {

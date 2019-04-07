@@ -2,7 +2,7 @@
     <string name="app_name">Logistics</string>
     <string name="error_to_load_products">Erro ao buscar os produtos :(</string>
     <string name="location_copied">Localização copiada!</string>
-    <string name="without_gps_permissions">Sem permissão para acessar o GPS :(</string>
+    <string name="without_gps_permissions">Ops... sem permissão para acessar o GPS :(</string>
     <string name="without_phone_permission">Falta permissão Telefone!!!</string>
     <string name="location_now">Localização atual:</string>
     <string name="nome_do_remetente">Nome do remetente:</string>

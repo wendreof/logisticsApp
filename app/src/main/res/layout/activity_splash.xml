@@ -35,8 +35,13 @@
                 android:onClick="copyText"
                 android:text="Copiar Localização"/>
 
-
     </LinearLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark" />
 
     <TextView android:layout_width="wrap_content"
               android:paddingTop="25dp"
@@ -44,9 +49,29 @@
               android:text="Foto da Assinatura: "
               android:textSize="25sp"/>
 
-    <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tirar foto"/>
+    <android.inputmethodservice.ExtractEditText
+            android:id="@+id/editImagem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+   <LinearLayout android:layout_width="match_parent"
+                 android:layout_height="wrap_content">
+       <Button android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Tirar foto"/>
+
+       <Button android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:onClick="copyText"
+               android:text="Copiar Imagem"/>
+   </LinearLayout>
+
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark" />
 
     <TextView android:layout_width="wrap_content"
               android:paddingTop="25dp"
@@ -58,6 +83,11 @@
             android:layout_height="wrap_content"
             android:text="Ler cód."/>
 
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark" />
 
     <Button
             android:id="@+id/btnNext"
