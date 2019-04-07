@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
+              android:padding="9dp"
               android:layout_height="match_parent"
               android:orientation="vertical">
 
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="20dp"
+              android:layout_marginRight="20dp"
+              android:text="@string/nome_do_remetente"
+    />
     <android.support.design.widget.TextInputEditText
             android:id="@+id/form_remetente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:hint="Remetente" />
+            android:hint="@string/nome_do_remetente" />
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="20dp"
+              android:layout_marginRight="20dp"
+              android:text="@string/nome_do_recebedor"/>
 
     <android.support.design.widget.TextInputEditText
             android:id="@+id/form_recebedor"
@@ -18,7 +31,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:hint="Recebedor" />
+            android:hint="@string/nome_do_recebedor" />
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="20dp"
+              android:layout_marginRight="20dp"
+              android:text="Descrição:"/>
 
     <android.support.design.widget.TextInputEditText
             android:id="@+id/form_descricao"
@@ -26,7 +45,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:hint="Descricao" />
+            android:hint="Descrição" />
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="20dp"
+              android:layout_marginRight="20dp"
+              android:text="Assinatura do recebedor:"/>
 
     <android.support.design.widget.TextInputEditText
             android:id="@+id/form_assinatura"
@@ -34,7 +59,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:hint="Assinatura" />
+            android:hint="Assinatura do recebedor" />
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="20dp"
+              android:layout_marginRight="20dp"
+              android:text="Local de entrega:"/>
 
     <android.support.design.widget.TextInputEditText
             android:id="@+id/form_local"
@@ -42,8 +73,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:hint="Local" />
+            android:hint="Local da entrega" />
 
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="20dp"
+              android:layout_marginRight="20dp"
+              android:text="Data de recebimento:"/>
 
     <android.support.design.widget.TextInputEditText
             android:id="@+id/form_dataRecebimento"
@@ -51,7 +87,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:hint="dataRecebimento" />
+            android:hint="Data de recebimento" />
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="20dp"
+              android:layout_marginRight="20dp"
+              android:text="Código de barras:"/>
 
     <android.support.design.widget.TextInputEditText
             android:id="@+id/form_codBarras"
@@ -59,7 +101,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:hint="Código de Barras" />
+            android:hint="Código de barras" />
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="20dp"
+              android:layout_marginRight="20dp"
+              android:text="Quantidade:"/>
 
     <android.support.design.widget.TextInputEditText
             android:id="@+id/form_quantidade"

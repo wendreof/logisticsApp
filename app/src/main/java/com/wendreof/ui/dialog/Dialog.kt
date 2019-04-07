@@ -39,9 +39,9 @@ class Dialog(
         mQuantidade.setText(product.quantidade)
 
         AlertDialog.Builder(context)
-            .setTitle("Alter Product")
+            .setTitle("Alterar Entrega")
             .setView(createdView)
-            .setPositiveButton("Save") { _, _ ->
+            .setPositiveButton("Salvar") { _, _ ->
                 val remetente = mRemetente.text.toString()
                 val recebedor = mRecebedor.text.toString()
                 val descricao = mDescricao.text.toString()
@@ -72,9 +72,9 @@ class Dialog(
     fun add(created: (created: Product) -> Unit)
     {
         AlertDialog.Builder(context)
-            .setTitle("Adicionar Produto")
+            .setTitle("Cadastrar Entrega")
             .setView(createdView)
-            .setPositiveButton("Save") { _, _ ->
+            .setPositiveButton("Salvar") { _, _ ->
                 val remetente = createdView.form_remetente.text.toString()
                 val recebedor = createdView.form_recebedor.text.toString()
                 val descricao = createdView.form_descricao.text.toString()
@@ -96,7 +96,7 @@ class Dialog(
                 WebClient().insert(product, {
                     created(it)
                 }, {
-                    Toast.makeText(context, "Falha ao salvar produto", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Falha ao cadastrar entrega", Toast.LENGTH_LONG).show()
                 })
             }
             .show()
@@ -105,12 +105,7 @@ class Dialog(
     private fun createView(): View
     {
         return LayoutInflater.from(context)
-            .inflate(
-                R.layout.form,
-                viewGroup,
-                false
-            )
+            .inflate(R.layout.form, viewGroup, false)
     }
-
 }
 
