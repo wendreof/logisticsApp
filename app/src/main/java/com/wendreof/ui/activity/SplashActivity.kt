@@ -1,21 +1,27 @@
 package com.wendreof.ui.activity
 
 import android.Manifest
+import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
+import android.provider.MediaStore
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
+import android.util.Base64
 import android.view.View
+import android.widget.Toast
 import com.wendreof.R
 import kotlinx.android.synthetic.main.activity_splash.*
+import java.io.ByteArrayOutputStream
 import java.lang.String.format
 
 class SplashActivity : AppCompatActivity()
@@ -27,6 +33,10 @@ class SplashActivity : AppCompatActivity()
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+
+        iniciarCamera()
+
+      takePicture.setOnClickListener{tirarFoto()}
 
         editLocation.isEnabled = false
         editImagem.isEnabled = false
@@ -121,6 +131,14 @@ class SplashActivity : AppCompatActivity()
         showMSG(getString(R.string.location_copied))
     }
 
+    fun copyText2(v: View)
+    {
+        myClip = ClipData.newPlainText("text", editImagem.text )
+        myClipboard?.primaryClip = myClip
+
+        showMSG(getString(R.string.location_copied))
+    }
+
     fun next(v: View)
     {
         val w = Intent( applicationContext, ListActivity::class.java )
@@ -128,4 +146,39 @@ class SplashActivity : AppCompatActivity()
     }
 
     private fun showMSG( msg: String ) = Snackbar.make( splashActivity, msg, Snackbar.LENGTH_LONG ).show()
+
+    private fun iniciarCamera() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 0)
+        }
+
+    }
+
+    fun tirarFoto() {
+        val it = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        startActivityForResult(it, 1)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
+            val extras = data!!.extras
+            val imagem = extras.get("data") as Bitmap
+            imageViewPhoto.setImageBitmap(imagem)
+            tobase64(imagem)
+        }
+        super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    private fun tobase64(bitmap: Bitmap) {
+
+        val byteArrayOutputStream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
+        val byteArray = byteArrayOutputStream.toByteArray()
+
+        val encoded = Base64.encodeToString(byteArray, Base64.DEFAULT)
+
+       // Toast.makeText(this, encoded, Toast.LENGTH_LONG).show()
+
+        editImagem.setText(encoded)
+    }
 }

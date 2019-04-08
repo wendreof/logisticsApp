@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/splashActivity"
         android:padding="25dp"
-        android:orientation="vertical"
         tools:context=".ui.activity.SplashActivity">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
@@ -49,6 +53,12 @@
               android:text="Foto da Assinatura: "
               android:textSize="25sp"/>
 
+    <ImageView
+            android:id="@+id/imageViewPhoto"
+            android:layout_width="358dp"
+               android:layout_height="196dp"
+               android:contentDescription="TODO"/>
+
     <android.inputmethodservice.ExtractEditText
             android:id="@+id/editImagem"
             android:layout_width="match_parent"
@@ -56,13 +66,16 @@
 
    <LinearLayout android:layout_width="match_parent"
                  android:layout_height="wrap_content">
-       <Button android:layout_width="wrap_content"
+
+       <Button
+               android:id="@+id/takePicture"
+               android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="Tirar foto"/>
 
        <Button android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:onClick="copyText"
+               android:onClick="copyText2"
                android:text="Copiar Imagem"/>
    </LinearLayout>
 
@@ -98,4 +111,6 @@
             android:onClick="next"
     />
 
-</LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
