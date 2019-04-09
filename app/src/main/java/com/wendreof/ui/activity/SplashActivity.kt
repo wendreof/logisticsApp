@@ -20,6 +20,7 @@ import android.util.Base64
 import android.view.View
 import android.widget.Toast
 import com.wendreof.R
+import id.zelory.compressor.Compressor
 import kotlinx.android.synthetic.main.activity_splash.*
 import java.io.ByteArrayOutputStream
 import java.lang.String.format
@@ -174,11 +175,12 @@ class SplashActivity : AppCompatActivity()
         val byteArrayOutputStream = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
         val byteArray = byteArrayOutputStream.toByteArray()
+        val encoded = Base64.encodeToString(byteArray, Base64.DEFAULT)  // BASE 64
+        val encoded2 = Base64.encode(byteArray, Base64.DEFAULT)         // ARRAY DE BYTES
 
-        val encoded = Base64.encodeToString(byteArray, Base64.DEFAULT)
+        showMSG(encoded2.toString())
 
-       // Toast.makeText(this, encoded, Toast.LENGTH_LONG).show()
+        editImagem.setText(encoded2.toString())
 
-        editImagem.setText(encoded)
     }
 }
