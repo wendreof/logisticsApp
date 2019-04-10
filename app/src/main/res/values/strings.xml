@@ -7,4 +7,19 @@
     <string name="location_now">Localização atual:</string>
     <string name="nome_do_remetente">Nome do remetente:</string>
     <string name="nome_do_recebedor">Nome do recebedor</string>
+    <string name="busca_localizacao_sucesso">A busca pela localização foi concluída com sucesso!</string>
+    <string name="buscando_localizacao">Obtendo a localização exata. Por favor, aguarde!</string>
+    <string name="foto_da_assinatura">Foto da Assinatura:</string>
+    <string name="tirar_foto">Tirar foto</string>
+    <string name="copiar_imagem">Copiar Imagem</string>
+    <string name="copiar_localiza_o">Copiar Localização</string>
+    <string name="obter_localiza_o">Obter localização</string>
+    <string name="hint_quantidade">99</string>
+    <string name="quantidade">Quantidade:</string>
+    <string name="hint_cod_barras">SKAJSajdkj13kj2323233</string>
+    <string name="_10_04_2019">10/04/2019</string>
+    <string name="data_de_recebimento">Data de recebimento:</string>
+    <string name="hint_remetente">Eloá Vitória</string>
+    <string name="hint_recebedor">Bianca Rosa da Silva</string>
+    <string name="hint_descricao">Playstation 4, SSD M.2</string>
 </resources>

@@ -31,13 +31,13 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/btnAllowGPS"
                 android:onClick="iniciarGPS"
-                android:text="Obter localização"/>
+                android:text="@string/obter_localiza_o"/>
 
         <Button android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnGetLocation"
                 android:onClick="copyText"
-                android:text="Copiar Localização"/>
+                android:text="@string/copiar_localiza_o"/>
 
     </LinearLayout>
 
@@ -50,7 +50,7 @@
     <TextView android:layout_width="wrap_content"
               android:paddingTop="25dp"
               android:layout_height="wrap_content"
-              android:text="Foto da Assinatura: "
+              android:text="@string/foto_da_assinatura"
               android:textSize="25sp"/>
 
     <ImageView
@@ -71,14 +71,13 @@
                android:id="@+id/takePicture"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="Tirar foto"/>
+               android:text="@string/tirar_foto"/>
 
        <Button android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:onClick="copyText2"
-               android:text="Copiar Imagem"/>
+               android:text="@string/copiar_imagem"/>
    </LinearLayout>
-
 
     <View
             android:layout_width="match_parent"
@@ -112,5 +111,4 @@
     />
 
     </LinearLayout>
-
 </ScrollView>
