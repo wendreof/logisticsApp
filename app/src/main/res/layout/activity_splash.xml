@@ -13,102 +13,158 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="@string/location_now"
-              android:textSize="25sp"/>
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="@string/location_now"
+                  android:textAlignment="center"
+                  android:typeface="serif"
+                  android:textSize="25sp"/>
 
-    <android.inputmethodservice.ExtractEditText
-            android:layout_width="match_parent"
-            android:id="@+id/editLocation"
-            android:layout_height="wrap_content"/>
+        <android.inputmethodservice.ExtractEditText
+                android:layout_width="match_parent"
+                android:id="@+id/editLocation"
+                android:layout_height="wrap_content"/>
 
-    <LinearLayout android:layout_width="wrap_content"
-                  android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
 
-        <Button android:layout_width="wrap_content"
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnAllowGPS"
+                    android:typeface="serif"
+                    android:onClick="iniciarGPS"
+                    android:bottomLeftRadius="6dp"
+                    android:bottomRightRadius="6dp"
+                    android:topLeftRadius="6dp"
+                    android:topRightRadius="6dp"
+                    android:text="@string/obter_localiza_o"
+                    tools:ignore="ButtonStyle"
+            />
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnGetLocation"
+                    android:typeface="serif"
+                    android:bottomLeftRadius="6dp"
+                    android:bottomRightRadius="6dp"
+                    android:topLeftRadius="6dp"
+                    android:topRightRadius="6dp"
+                    android:onClick="copyText"
+                    android:text="@string/copiar_localiza_o"
+                    tools:ignore="ButtonStyle"/>
+
+        </LinearLayout>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimaryDark"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:typeface="serif"
+                android:paddingTop="25dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnAllowGPS"
-                android:onClick="iniciarGPS"
-                android:text="@string/obter_localiza_o"/>
+                android:textAlignment="center"
+                android:text="@string/foto_da_assinatura"
+                android:textSize="25sp"
+        />
 
-        <Button android:layout_width="wrap_content"
+        <ImageView
+                android:id="@+id/imageViewPhoto"
+                android:layout_width="358dp"
+                android:layout_height="196dp"
+                android:contentDescription="TODO"/>
+
+        <android.inputmethodservice.ExtractEditText
+                android:id="@+id/editImagem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <Button
+                    android:id="@+id/takePicture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:bottomLeftRadius="6dp"
+                    android:bottomRightRadius="6dp"
+                    android:topLeftRadius="6dp"
+                    android:typeface="serif"
+                    android:topRightRadius="6dp"
+                    android:text="@string/tirar_foto"
+                    tools:ignore="ButtonStyle"/>
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="copyText2"
+                    android:bottomLeftRadius="6dp"
+                    android:bottomRightRadius="6dp"
+                    android:topLeftRadius="6dp"
+                    android:topRightRadius="6dp"
+                    android:typeface="serif"
+                    android:text="@string/copiar_imagem"
+                    tools:ignore="ButtonStyle"/>
+        </LinearLayout>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimaryDark"/>
+
+        <TextView android:layout_width="match_parent"
+                  android:paddingTop="25dp"
+                  android:layout_height="wrap_content"
+                  android:typeface="serif"
+                  android:text="Código de barras: "
+                  android:textAlignment="center"
+                  android:textSize="25sp"/>
+
+        <android.inputmethodservice.ExtractEditText
+                android:id="@+id/editBarcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <Button
+                android:id="@+id/btnLeitura"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnGetLocation"
-                android:onClick="copyText"
-                android:text="@string/copiar_localiza_o"/>
+                android:bottomLeftRadius="6dp"
+                android:bottomRightRadius="6dp"
+                android:topLeftRadius="6dp"
+                android:topRightRadius="6dp"
+                android:onClick="btnLeitura_onClick"
+                android:typeface="serif"
+                android:text="Ler cód."
+                tools:ignore="ButtonStyle"/>
 
-    </LinearLayout>
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimaryDark"/>
 
-    <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorPrimaryDark" />
-
-    <TextView android:layout_width="wrap_content"
-              android:paddingTop="25dp"
-              android:layout_height="wrap_content"
-              android:text="@string/foto_da_assinatura"
-              android:textSize="25sp"/>
-
-    <ImageView
-            android:id="@+id/imageViewPhoto"
-            android:layout_width="358dp"
-               android:layout_height="196dp"
-               android:contentDescription="TODO"/>
-
-    <android.inputmethodservice.ExtractEditText
-            android:id="@+id/editImagem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-   <LinearLayout android:layout_width="match_parent"
-                 android:layout_height="wrap_content">
-
-       <Button
-               android:id="@+id/takePicture"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/tirar_foto"/>
-
-       <Button android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:onClick="copyText2"
-               android:text="@string/copiar_imagem"/>
-   </LinearLayout>
-
-    <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorPrimaryDark" />
-
-    <TextView android:layout_width="wrap_content"
-              android:paddingTop="25dp"
-              android:layout_height="wrap_content"
-              android:text="Código de barras: "
-              android:textSize="25sp"/>
-
-    <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ler cód."/>
-
-    <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorPrimaryDark" />
-
-    <Button
-            android:id="@+id/btnNext"
-            android:layout_marginTop="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ir para entregas"
-            android:onClick="next"
-    />
+        <Button
+                android:id="@+id/btnNext"
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:bottomLeftRadius="6dp"
+                android:bottomRightRadius="6dp"
+                android:topLeftRadius="6dp"
+                android:topRightRadius="6dp"
+                android:text="@string/ir_para_entregas"
+                android:onClick="next"
+                android:typeface="serif"
+                tools:ignore="ButtonStyle"/>
 
     </LinearLayout>
 </ScrollView>

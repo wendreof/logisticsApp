@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:dist="http://schemas.android.com/apk/distribution"
-          xmlns:tools="http://schemas.android.com/tools" package="com.wendreof">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.wendreof">
 
     <dist:module dist:instant="true"/>
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+
     <application
             android:allowBackup="true"
+            android:fullBackupContent="true"
             android:icon="@mipmap/ic_launcher"
             android:label="Projeto 7: Logística"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.activity.SplashActivity">
+        <activity android:name=".ui.activity.CodeReaderActivity">
+        </activity>
+        <activity android:name=".ui.activity.SplashActivity"
+                  android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -28,11 +39,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-feature android:name="android.hardware.camera"/>
 
 </manifest>

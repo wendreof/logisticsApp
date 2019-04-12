@@ -18,6 +18,7 @@ import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.util.Base64
 import android.view.View
+import android.widget.TextView
 import com.wendreof.R
 import kotlinx.android.synthetic.main.activity_splash.*
 import java.io.ByteArrayOutputStream
@@ -27,13 +28,14 @@ class SplashActivity : AppCompatActivity()
 {
     private var myClipboard: ClipboardManager? = null
     private var myClip: ClipData? = null
+    private val BARCODE_ACTIVITY = 555
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        iniciarCamera()
+       // iniciarCamera()
 
       takePicture.setOnClickListener{tirarFoto()}
 
@@ -145,7 +147,7 @@ class SplashActivity : AppCompatActivity()
 
     private fun showMSG( msg: String ) = Snackbar.make( splashActivity, msg, Snackbar.LENGTH_LONG ).show()
 
-    private fun iniciarCamera()
+    fun iniciarCamera()
     {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
         {
@@ -155,6 +157,7 @@ class SplashActivity : AppCompatActivity()
 
     fun tirarFoto()
     {
+        iniciarCamera()
         val it = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         startActivityForResult(it, 1)
     }
@@ -167,6 +170,11 @@ class SplashActivity : AppCompatActivity()
             val imagem = extras.get("data") as Bitmap
             imageViewPhoto.setImageBitmap(imagem)
             tobase64(imagem)
+        }
+        else if (requestCode == BARCODE_ACTIVITY && resultCode == Activity.RESULT_OK){
+                val tx = findViewById<TextView>(R.id.editBarcode)
+                val strValor = data!!.getStringExtra("codigo_barra")
+                tx.text = strValor.toString()
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
@@ -182,5 +190,10 @@ class SplashActivity : AppCompatActivity()
         showMSG(encoded2.toString())
 
         editImagem.setText(encoded2.toString())
+    }
+
+    fun btnLeitura_onClick(view: View) {
+        val itn = Intent(this, CodeReaderActivity::class.java)
+        startActivityForResult(itn, BARCODE_ACTIVITY)
     }
 }
