@@ -43,6 +43,4 @@ class CodeReaderActivity : AppCompatActivity(), ZXingScannerView.ResultHandler
         super.onPause()
         mScannerView!!.stopCamera()
     }
-
-
 }

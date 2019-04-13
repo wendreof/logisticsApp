@@ -16,44 +16,42 @@
         <TextView android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:text="@string/location_now"
+                  android:textColor="@color/colorPrimaryDark"
                   android:textAlignment="center"
-                  android:typeface="serif"
                   android:textSize="25sp"/>
 
         <android.inputmethodservice.ExtractEditText
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
                 android:id="@+id/editLocation"
-                android:layout_height="wrap_content"/>
+                android:textAlignment="center"
+                android:background="@drawable/round_et"
+                android:enabled="false"
+                android:layout_height="45dp"/>
 
         <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-
             <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="159dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/btnAllowGPS"
-                    android:typeface="serif"
-                    android:onClick="iniciarGPS"
-                    android:bottomLeftRadius="6dp"
-                    android:bottomRightRadius="6dp"
-                    android:topLeftRadius="6dp"
-                    android:topRightRadius="6dp"
+                    android:onClick="startGPS"
+                    android:textColor="@color/colorWhite"
+                    android:background="@drawable/round_btn"
                     android:text="@string/obter_localiza_o"
-                    tools:ignore="ButtonStyle"
-            />
+                    tools:ignore="ButtonStyle"/>
 
             <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="178dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/btnGetLocation"
-                    android:typeface="serif"
-                    android:bottomLeftRadius="6dp"
-                    android:bottomRightRadius="6dp"
-                    android:topLeftRadius="6dp"
-                    android:topRightRadius="6dp"
-                    android:onClick="copyText"
+                    android:textColor="@color/colorWhite"
+                    android:background="@drawable/round_btn"
+
                     android:text="@string/copiar_localiza_o"
                     tools:ignore="ButtonStyle"/>
 
@@ -63,13 +61,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/colorPrimaryDark"/>
+                android:background="@color/colorPrimary"/>
 
         <TextView
                 android:layout_width="match_parent"
-                android:typeface="serif"
                 android:paddingTop="25dp"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
                 android:textAlignment="center"
                 android:text="@string/foto_da_assinatura"
                 android:textSize="25sp"
@@ -77,40 +75,44 @@
 
         <ImageView
                 android:id="@+id/imageViewPhoto"
-                android:layout_width="358dp"
-                android:layout_height="196dp"
+                android:layout_width="349dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_height="128dp"
                 android:contentDescription="TODO"/>
 
         <android.inputmethodservice.ExtractEditText
                 android:id="@+id/editImagem"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@drawable/round_et"
+                android:enabled="false"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="45dp"/>
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
             <Button
                     android:id="@+id/takePicture"
-                    android:layout_width="wrap_content"
+                    android:layout_width="162dp"
                     android:layout_height="wrap_content"
-                    android:bottomLeftRadius="6dp"
-                    android:bottomRightRadius="6dp"
-                    android:topLeftRadius="6dp"
-                    android:typeface="serif"
-                    android:topRightRadius="6dp"
+                    android:textColor="@color/colorWhite"
+                    android:background="@drawable/round_btn"
                     android:text="@string/tirar_foto"
                     tools:ignore="ButtonStyle"/>
 
             <Button
-                    android:layout_width="wrap_content"
+                    android:id="@+id/btnGetImage"
+                    android:layout_width="177dp"
                     android:layout_height="wrap_content"
-                    android:onClick="copyText2"
-                    android:bottomLeftRadius="6dp"
-                    android:bottomRightRadius="6dp"
-                    android:topLeftRadius="6dp"
-                    android:topRightRadius="6dp"
-                    android:typeface="serif"
+
+                    android:background="@drawable/round_btn"
+                    android:textColor="@color/colorWhite"
                     android:text="@string/copiar_imagem"
                     tools:ignore="ButtonStyle"/>
         </LinearLayout>
@@ -119,51 +121,67 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/colorPrimaryDark"/>
+                android:background="@color/colorPrimary"/>
 
         <TextView android:layout_width="match_parent"
                   android:paddingTop="25dp"
                   android:layout_height="wrap_content"
-                  android:typeface="serif"
                   android:text="Código de barras: "
+                  android:textColor="@color/colorPrimaryDark"
                   android:textAlignment="center"
                   android:textSize="25sp"/>
 
         <android.inputmethodservice.ExtractEditText
                 android:id="@+id/editBarcode"
+                android:enabled="false"
+                android:textAlignment="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/round_et"
+                android:textColor="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        <Button
-                android:id="@+id/btnLeitura"
+                android:layout_height="45dp"/>
+
+        <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:bottomLeftRadius="6dp"
-                android:bottomRightRadius="6dp"
-                android:topLeftRadius="6dp"
-                android:topRightRadius="6dp"
-                android:onClick="btnLeitura_onClick"
-                android:typeface="serif"
-                android:text="Ler cód."
-                tools:ignore="ButtonStyle"/>
+                android:layout_height="wrap_content">
+
+            <Button
+                    android:id="@+id/btnReadBarcode"
+                    android:layout_width="157dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_btn"
+                    android:textColor="@color/colorWhite"
+                    android:onClick="readBarCode"
+                    android:text="Ler código"
+                    tools:ignore="ButtonStyle"/>
+
+            <Button
+                    android:id="@+id/btnGetCode"
+                    android:layout_width="177dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_btn"
+                    android:textColor="@color/colorWhite"
+                    android:text="Copiar código"
+                    tools:ignore="ButtonStyle"/>
+        </LinearLayout>
+
 
         <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/colorPrimaryDark"/>
+                android:background="@color/colorPrimary"/>
 
         <Button
                 android:id="@+id/btnNext"
                 android:layout_marginTop="25dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:bottomLeftRadius="6dp"
-                android:bottomRightRadius="6dp"
-                android:topLeftRadius="6dp"
-                android:topRightRadius="6dp"
+                android:background="@drawable/round_btn"
                 android:text="@string/ir_para_entregas"
+                android:textColor="@color/colorWhite"
                 android:onClick="next"
-                android:typeface="serif"
                 tools:ignore="ButtonStyle"/>
 
     </LinearLayout>

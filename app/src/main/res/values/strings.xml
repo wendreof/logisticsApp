@@ -1,14 +1,16 @@
 <resources>
     <string name="app_name">Logistics</string>
     <string name="error_to_load_products">Erro ao buscar os produtos :(</string>
-    <string name="location_copied">Localização copiada!</string>
+    <string name="location_copied">Localização copiada! :)</string>
+    <string name="image_copied">Imagem copiada! :)</string>
+    <string name="code_copied">Código de barras copiado! :)</string>
     <string name="without_gps_permissions">Ops... sem permissão para acessar o GPS :(</string>
     <string name="without_phone_permission">Falta permissão Telefone!!!</string>
     <string name="location_now">Localização atual:</string>
     <string name="nome_do_remetente">Nome do remetente:</string>
     <string name="nome_do_recebedor">Nome do recebedor</string>
     <string name="busca_localizacao_sucesso">A busca pela localização foi concluída com sucesso!</string>
-    <string name="buscando_localizacao">Obtendo a localização exata. Por favor, aguarde!</string>
+    <string name="buscando_localizacao">Buscando a localização. Aguarde!</string>
     <string name="foto_da_assinatura">Foto da assinatura:</string>
     <string name="tirar_foto">Tirar foto</string>
     <string name="copiar_imagem">Copiar Imagem</string>
@@ -23,4 +25,5 @@
     <string name="hint_recebedor">Bianca Rosa da Silva</string>
     <string name="hint_descricao">Playstation 4, SSD M.2</string>
     <string name="ir_para_entregas">Ir para entregas</string>
+    <string name="no_data_to_copy">Não há nenhum dado para se copiado! :s</string>
 </resources>

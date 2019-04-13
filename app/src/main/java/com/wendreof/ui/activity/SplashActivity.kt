@@ -18,34 +18,37 @@ import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.util.Base64
 import android.view.View
+import android.view.View.OnClickListener
+import android.view.WindowManager
 import android.widget.TextView
 import com.wendreof.R
 import kotlinx.android.synthetic.main.activity_splash.*
 import java.io.ByteArrayOutputStream
 import java.lang.String.format
 
-class SplashActivity : AppCompatActivity()
+class SplashActivity : AppCompatActivity(), OnClickListener
 {
     private var myClipboard: ClipboardManager? = null
     private var myClip: ClipData? = null
-    private val BARCODE_ACTIVITY = 555
+    private val BARCODEACTIVITY = 555
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-       // iniciarCamera()
+        applyScreenFull()
+        startCamera()
 
-      takePicture.setOnClickListener{tirarFoto()}
+      takePicture.setOnClickListener{takePicture()}
+      btnGetImage.setOnClickListener(this)
+      btnGetLocation.setOnClickListener(this)
+      btnGetCode.setOnClickListener(this)
 
-        editLocation.isEnabled = false
-        editImagem.isEnabled = false
-
-        myClipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
+      myClipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
     }
 
-    fun iniciarGPS(v: View)
+    fun startGPS(v: View)
     {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
             && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
@@ -54,7 +57,7 @@ class SplashActivity : AppCompatActivity()
         }
         else
         {
-            solicitarGPS()
+            requestGPSPermission()
             showMSG(getString(R.string.buscando_localizacao))
         }
 
@@ -65,78 +68,46 @@ class SplashActivity : AppCompatActivity()
     {
         when (requestCode)
         {
-            1 -> {
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                {
-                    //solicitarTelefone();
-                }
-                else
-                {
-                    showMSG(getString(R.string.without_phone_permission))
-                }
-                return
-            }
             2 -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
                 {
-                    solicitarGPS()
+                    requestGPSPermission()
                 }
                 else
-                {
                     showMSG(getString(R.string.without_gps_permissions))
-                }
                 return
             }
         }
     }
 
-    fun solicitarGPS()
-    {
-        try {
-            val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+    private fun requestGPSPermission() = try {
+        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
-            val locationListener = object : LocationListener
-            {
-                override fun onLocationChanged(location: Location)
-                {
-                    apresentar(location)
-                }
-                override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {}
-                override fun onProviderEnabled(provider: String) {}
-                override fun onProviderDisabled(provider: String) {}
-            }
-            locationManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 0, 0f, locationListener )
-            showMSG(getString(R.string.busca_localizacao_sucesso))
-        }
-        catch ( ex: SecurityException )
+        val locationListener = object : LocationListener
         {
-            showMSG( ex.message.toString() )
+            override fun onLocationChanged(location: Location)
+            {
+                show(location)
+            }
+            override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {}
+            override fun onProviderEnabled(provider: String) {}
+            override fun onProviderDisabled(provider: String) {}
         }
+        locationManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 0, 0f, locationListener )
+        showMSG(getString(R.string.busca_localizacao_sucesso))
+    }
+    catch ( ex: SecurityException )
+    {
+        showMSG( ex.message.toString() )
     }
 
-    fun apresentar( l: Location )
+    fun show(l: Location )
     {
         val latPoint = l.latitude
         val lngPoint = l.longitude
 
         editLocation.setText( "" )
         editLocation.setText( format("Lat: %s | Long: %s", latPoint.toString(), lngPoint.toString()) )
-    }
-
-    fun copyText(v: View)
-    {
-        myClip = ClipData.newPlainText("text", editLocation.text )
-        myClipboard?.primaryClip = myClip
-
-        showMSG(getString(R.string.location_copied))
-    }
-
-    fun copyText2(v: View)
-    {
-        myClip = ClipData.newPlainText("text", editImagem.text )
-        myClipboard?.primaryClip = myClip
-
-        showMSG(getString(R.string.location_copied))
     }
 
     fun next(v: View)
@@ -147,17 +118,14 @@ class SplashActivity : AppCompatActivity()
 
     private fun showMSG( msg: String ) = Snackbar.make( splashActivity, msg, Snackbar.LENGTH_LONG ).show()
 
-    fun iniciarCamera()
+    private fun startCamera()
     {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
-        {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 0)
-        }
     }
 
-    fun tirarFoto()
+    private fun takePicture()
     {
-        iniciarCamera()
         val it = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         startActivityForResult(it, 1)
     }
@@ -171,7 +139,8 @@ class SplashActivity : AppCompatActivity()
             imageViewPhoto.setImageBitmap(imagem)
             tobase64(imagem)
         }
-        else if (requestCode == BARCODE_ACTIVITY && resultCode == Activity.RESULT_OK){
+        else if (requestCode == BARCODEACTIVITY && resultCode == Activity.RESULT_OK)
+        {
                 val tx = findViewById<TextView>(R.id.editBarcode)
                 val strValor = data!!.getStringExtra("codigo_barra")
                 tx.text = strValor.toString()
@@ -186,14 +155,55 @@ class SplashActivity : AppCompatActivity()
         val byteArray = byteArrayOutputStream.toByteArray()
         val encoded = Base64.encodeToString(byteArray, Base64.DEFAULT)  // BASE 64
         val encoded2 = Base64.encode(byteArray, Base64.DEFAULT)         // ARRAY DE BYTES
-
-        showMSG(encoded2.toString())
-
         editImagem.setText(encoded2.toString())
     }
 
-    fun btnLeitura_onClick(view: View) {
+    fun readBarCode(view: View)
+    {
         val itn = Intent(this, CodeReaderActivity::class.java)
-        startActivityForResult(itn, BARCODE_ACTIVITY)
+        startActivityForResult(itn, BARCODEACTIVITY)
+    }
+
+    private fun applyScreenFull() = window.addFlags( WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON )
+
+    override fun onClick(v: View)
+    {
+       val w = v.id
+
+        when (w){
+            btnGetLocation.id ->
+            {
+                if (editLocation.text.toString()!= "")
+                {
+                    myClip = ClipData.newPlainText("text", editLocation.text )
+                    myClipboard?.primaryClip = myClip
+                    showMSG(getString(R.string.location_copied))
+                }
+                else
+                    showMSG(getString(R.string.no_data_to_copy))
+            }
+            btnGetImage.id ->
+            {
+                if (editImagem.text.toString()!= "")
+                {
+                    myClip = ClipData.newPlainText("text", editImagem.text)
+                    myClipboard?.primaryClip = myClip
+                    showMSG(getString(R.string.image_copied))
+                }
+                else
+                    showMSG(getString(R.string.no_data_to_copy))
+            }
+            btnGetCode.id ->
+            {
+                if (editBarcode.text.toString()!= "")
+                {
+                    myClip = ClipData.newPlainText("text", editBarcode.text)
+                    myClipboard?.primaryClip = myClip
+                    showMSG(getString(R.string.code_copied))
+                }
+                else
+                    showMSG(getString(R.string.no_data_to_copy))
+            }
+        }
     }
 }

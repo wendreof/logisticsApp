@@ -7,8 +7,6 @@
         android:layout_margin="5dp"
         android:maxHeight="250dp">
 
-
-
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -17,36 +15,42 @@
 
         <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
                 android:text="Remetente"/>
 
         <TextView
                 android:id="@+id/item_remetente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="28sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="25sp"
                 tools:text="Remetente"/>
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Remetente"/>
+                android:textColor="@color/colorPrimaryDark"
+                android:text="Destinatário"/>
 
         <TextView
                 android:id="@+id/item_recebedor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="20dp"
-                tools:text="Recebedor"/>
+                tools:text="Destinatário"/>
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Remetente"/>
+                android:textColor="@color/colorPrimaryDark"
+                android:text="Descrição do(s) produto(s)"/>
 
         <TextView
                 android:id="@+id/item_descricao"
                 android:layout_width="match_parent"
+                android:textColor="@color/colorPrimaryDark"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 tools:text="Descrição"/>
@@ -54,60 +58,70 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Remetente"/>
+                android:textColor="@color/colorPrimaryDark"
+                android:text="Assinatura destinatário"/>
 
         <TextView
                 android:id="@+id/item_assinatura"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp"
                 tools:text="Assinatura"/>
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Remetente"/>
+                android:textColor="@color/colorPrimaryDark"
+                android:text="Local de entrega"/>
 
         <TextView
                 android:id="@+id/item_local"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp"
                 tools:text="Local"/>
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Remetente"/>
+                android:textColor="@color/colorPrimaryDark"
+                android:text="Data de recebimento"/>
 
         <TextView
                 android:id="@+id/item_dataRecebimento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp"
                 tools:text="dataRecebimento"/>
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Remetente"/>
+                android:textColor="@color/colorPrimaryDark"
+                android:text="Código de barras"/>
 
         <TextView
                 android:id="@+id/item_codBarras"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp"
-                tools:text="dataRecebimento"/>
+                tools:text="Código de barras"/>
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Remetente"/>
+                android:textColor="@color/colorPrimaryDark"
+                android:text="Quantidade de itens"/>
 
         <TextView
                 android:id="@+id/item_quantidade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp"
                 tools:text="Quantidade"/>
 
