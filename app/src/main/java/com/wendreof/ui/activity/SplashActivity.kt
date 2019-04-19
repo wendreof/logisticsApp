@@ -211,5 +211,5 @@ class SplashActivity : AppCompatActivity(), OnClickListener
 
     private fun showMSG( msg: String ) = Snackbar.make( splashActivity, msg, Snackbar.LENGTH_LONG ).show()
 
-    private fun applyScreenFull() = window.addFlags( WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON )
+    private fun applyScreenFull() = window.addFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN )
 }

@@ -39,7 +39,7 @@
               android:layout_height="wrap_content"
               android:layout_marginLeft="20dp"
               android:layout_marginRight="20dp"
-              android:text="Descrição:"/>
+              android:text="@string/descri_o_do_s_produto_s"/>
 
     <android.support.design.widget.TextInputEditText
             android:id="@+id/form_descricao"
@@ -54,7 +54,7 @@
               android:layout_height="wrap_content"
               android:layout_marginLeft="20dp"
               android:layout_marginRight="20dp"
-              android:text="Assinatura"/>
+              android:text="@string/assinatura_destinat_rio"/>
 
     <android.support.design.widget.TextInputEditText
             android:id="@+id/form_assinatura"
@@ -69,7 +69,7 @@
               android:layout_height="wrap_content"
               android:layout_marginLeft="20dp"
               android:layout_marginRight="20dp"
-              android:text="Local de entrega:"/>
+              android:text="@string/local_de_entrega"/>
 
     <android.support.design.widget.TextInputEditText
             android:id="@+id/form_local"
@@ -99,7 +99,7 @@
               android:layout_height="wrap_content"
               android:layout_marginLeft="20dp"
               android:layout_marginRight="20dp"
-              android:text="Código de barras:"/>
+              android:text="@string/codigo_barras"/>
 
     <android.support.design.widget.TextInputEditText
             android:id="@+id/form_codBarras"

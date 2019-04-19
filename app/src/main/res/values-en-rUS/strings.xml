@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Logistics</string>
+    <string name="error_to_load_products">Error fetching products :(</string>
+    <string name="location_copied">Location copied! :)</string>
+    <string name="image_copied">Image copied! :)</string>
+    <string name="code_copied">Barcode copied! :)</string>
+    <string name="without_gps_permissions">Ops... without permission to access GPS :(</string>
+    <string name="without_phone_permission">Missing Permission Phone!! :s</string>
+    <string name="location_now">Current location</string>
+    <string name="nome_do_remetente">Senders name</string>
+    <string name="nome_do_recebedor">Receiver name</string>
+    <string name="busca_localizacao_sucesso">Location search started!</string>
+    <string name="buscando_localizacao">Seeking the location. Wait!</string>
+    <string name="foto_da_assinatura">Signature photo</string>
+    <string name="tirar_foto">Take a picture</string>
+    <string name="copiar_imagem">Copy Image</string>
+    <string name="copiar_localiza_o">Copy Location</string>
+    <string name="obter_localiza_o">Get Location</string>
+    <string name="hint_quantidade">99</string>
+    <string name="quantidade">Amount</string>
+    <string name="hint_cod_barras">SKAJSajdkj13kj2323233</string>
+    <string name="_10_04_2019">10/04/2019</string>
+    <string name="data_de_recebimento">Receipt date</string>
+    <string name="hint_remetente">Eloá Vitória</string>
+    <string name="hint_recebedor">Bianca Rosa da Silva</string>
+    <string name="hint_descricao">Playstation 4, SSD M.2</string>
+    <string name="ir_para_entregas">Go to deliveries</string>
+    <string name="no_data_to_copy">There is no data to be copied! :s</string>
+    <string name="falha_ao_cadastrar_entrega">Failed to register delivery! :s</string>
+    <string name="Salvar">Save</string>
+    <string name="alterar_entrega">Change Delivery Data</string>
+    <string name="cadastrar_entrega">New Delivery</string>
+    <string name="codigo_barras">Bar code</string>
+    <string name="read_code">Read code</string>
+    <string name="copy_code">Copy code</string>
+    <string name="remetente">Sender</string>
+    <string name="destinat_rio">Addressee</string>
+    <string name="descri_o_do_s_produto_s">Description of the product(s)</string>
+    <string name="assinatura_destinat_rio">Recipient signature</string>
+    <string name="local_de_entrega">Delivery place</string>
+    <string name="recebimento_date">Receipt date</string>
+</resources>

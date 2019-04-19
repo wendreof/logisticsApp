@@ -17,7 +17,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Remetente"/>
+                android:text="@string/remetente"/>
 
         <TextView
                 android:id="@+id/item_remetente"
@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Destinatário"/>
+                android:text="@string/destinat_rio"/>
 
         <TextView
                 android:id="@+id/item_recebedor"
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Descrição do(s) produto(s)"/>
+                android:text="@string/descri_o_do_s_produto_s"/>
 
         <TextView
                 android:id="@+id/item_descricao"
@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Assinatura destinatário"/>
+                android:text="@string/assinatura_destinat_rio"/>
 
         <TextView
                 android:id="@+id/item_assinatura"
@@ -73,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Local de entrega"/>
+                android:text="@string/local_de_entrega"/>
 
         <TextView
                 android:id="@+id/item_local"
@@ -87,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Data de recebimento"/>
+                android:text="@string/recebimento_date"/>
 
         <TextView
                 android:id="@+id/item_dataRecebimento"
@@ -101,7 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Código de barras"/>
+                android:text="@string/codigo_barras"/>
 
         <TextView
                 android:id="@+id/item_codBarras"
@@ -115,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Quantidade de itens"/>
+                android:text="@string/quantidade"/>
 
         <TextView
                 android:id="@+id/item_quantidade"

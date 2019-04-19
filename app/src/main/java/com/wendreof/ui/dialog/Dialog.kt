@@ -35,9 +35,9 @@ class Dialog( private val viewGroup: ViewGroup, private val context: Context)
         mQuantidade.setText(product.quantidade)
 
         AlertDialog.Builder(context)
-            .setTitle("Alterar Entrega")
+            .setTitle(context.getString(R.string.alterar_entrega))
             .setView(createdView)
-            .setPositiveButton("Salvar") { _, _ ->
+            .setPositiveButton(context.getString(R.string.Salvar)) { _, _ ->
                 val remetente = mRemetente.text.toString()
                 val recebedor = mRecebedor.text.toString()
                 val descricao = mDescricao.text.toString()
@@ -45,6 +45,7 @@ class Dialog( private val viewGroup: ViewGroup, private val context: Context)
                 val local = mLocal.text.toString()
                 val dataRecebimento = mDataRecebimento.text.toString()
                 val codBarras = mCodBarras.text.toString()
+                //val quantidade = toInt(mQuantidade.text.toString())
                 val quantidade = mQuantidade.text.toString()
                 val alteredProduct = product.copy(
                     remetente = remetente,
@@ -68,9 +69,9 @@ class Dialog( private val viewGroup: ViewGroup, private val context: Context)
     fun add(created: (created: Product) -> Unit)
     {
         AlertDialog.Builder(context)
-            .setTitle("Cadastrar Entrega")
+            .setTitle(context.getString(R.string.cadastrar_entrega))
             .setView(createdView)
-            .setPositiveButton("Salvar") { _, _ ->
+            .setPositiveButton(context.getString(R.string.Salvar)) { _, _ ->
                 val remetente = createdView.form_remetente.text.toString()
                 val recebedor = createdView.form_recebedor.text.toString()
                 val descricao = createdView.form_descricao.text.toString()
@@ -78,6 +79,7 @@ class Dialog( private val viewGroup: ViewGroup, private val context: Context)
                 val local = createdView.form_local.text.toString()
                 val dataRecebimento = createdView.form_dataRecebimento.text.toString()
                 val codBarras = createdView.form_codBarras.text.toString()
+                //val quantidade = toInt(createdView.form_quantidade.text.toString())
                 val quantidade = createdView.form_quantidade.text.toString()
                 val product = Product(
                     remetente = remetente,
@@ -103,5 +105,7 @@ class Dialog( private val viewGroup: ViewGroup, private val context: Context)
         return LayoutInflater.from(context)
             .inflate(R.layout.form, viewGroup, false)
     }
+
+    //private fun toInt(str: String): Int {return toInt(str)}
 }
 

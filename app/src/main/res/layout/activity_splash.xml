@@ -126,7 +126,7 @@
         <TextView android:layout_width="match_parent"
                   android:paddingTop="25dp"
                   android:layout_height="wrap_content"
-                  android:text="Código de barras: "
+                  android:text="@string/codigo_barras"
                   android:textColor="@color/colorPrimaryDark"
                   android:textAlignment="center"
                   android:textSize="25sp"/>
@@ -153,7 +153,7 @@
                     android:background="@drawable/round_btn"
                     android:textColor="@color/colorWhite"
                     android:onClick="readBarCode"
-                    android:text="Ler código"
+                    android:text="@string/read_code"
                     tools:ignore="ButtonStyle"/>
 
             <Button
@@ -162,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_btn"
                     android:textColor="@color/colorWhite"
-                    android:text="Copiar código"
+                    android:text="@string/copy_code"
                     tools:ignore="ButtonStyle"/>
         </LinearLayout>
 
