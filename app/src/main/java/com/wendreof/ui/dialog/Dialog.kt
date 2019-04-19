@@ -11,11 +11,8 @@ import com.wendreof.model.Product
 import com.wendreof.retrofit.service.WebClient
 import kotlinx.android.synthetic.main.form.view.*
 
-class Dialog(
-    private val viewGroup: ViewGroup,
-    private val context: Context)
+class Dialog( private val viewGroup: ViewGroup, private val context: Context)
 {
-
     private val createdView = createView()
     private val mRemetente = createdView.form_remetente
     private val mRecebedor = createdView.form_recebedor
@@ -25,7 +22,6 @@ class Dialog(
     private val mDataRecebimento = createdView.form_dataRecebimento
     private val mCodBarras = createdView.form_codBarras
     private val mQuantidade = createdView.form_quantidade
-
 
     fun alter(product: Product, altered: (alteredProduct: Product) -> Unit)
     {
@@ -96,7 +92,7 @@ class Dialog(
                 WebClient().insert(product, {
                     created(it)
                 }, {
-                    Toast.makeText(context, "Falha ao cadastrar entrega", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, context.getString(R.string.falha_ao_cadastrar_entrega), Toast.LENGTH_LONG).show()
                 })
             }
             .show()

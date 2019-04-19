@@ -48,6 +48,8 @@ class SplashActivity : AppCompatActivity(), OnClickListener
       myClipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
     }
 
+    /* :::::::::::::::::::::::::::::::::::: GPS  ::::::::::::::::::::::::::::::::::::  */
+
     fun startGPS(v: View)
     {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
@@ -110,13 +112,7 @@ class SplashActivity : AppCompatActivity(), OnClickListener
         editLocation.setText( format("Lat: %s | Long: %s", latPoint.toString(), lngPoint.toString()) )
     }
 
-    fun next(v: View)
-    {
-        val w = Intent( applicationContext, ListActivity::class.java )
-        startActivity( w )
-    }
-
-    private fun showMSG( msg: String ) = Snackbar.make( splashActivity, msg, Snackbar.LENGTH_LONG ).show()
+    /* :::::::::::::::::::::::::::::::::::: CAMERA  ::::::::::::::::::::::::::::::::::::  */
 
     private fun startCamera()
     {
@@ -158,13 +154,13 @@ class SplashActivity : AppCompatActivity(), OnClickListener
         editImagem.setText(encoded2.toString())
     }
 
+    /* :::::::::::::::::::::::::::::::::::: BARCODE  ::::::::::::::::::::::::::::::::::::  */
+
     fun readBarCode(view: View)
     {
         val itn = Intent(this, CodeReaderActivity::class.java)
         startActivityForResult(itn, BARCODEACTIVITY)
     }
-
-    private fun applyScreenFull() = window.addFlags( WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON )
 
     override fun onClick(v: View)
     {
@@ -206,4 +202,14 @@ class SplashActivity : AppCompatActivity(), OnClickListener
             }
         }
     }
+
+    fun next(v: View)
+    {
+        val w = Intent( applicationContext, ListActivity::class.java )
+        startActivity( w )
+    }
+
+    private fun showMSG( msg: String ) = Snackbar.make( splashActivity, msg, Snackbar.LENGTH_LONG ).show()
+
+    private fun applyScreenFull() = window.addFlags( WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON )
 }

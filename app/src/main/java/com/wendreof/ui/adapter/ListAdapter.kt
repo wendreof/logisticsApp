@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import com.wendreof.R
 import com.wendreof.model.Product
 import kotlinx.android.synthetic.main.product_item.view.*
@@ -14,9 +13,9 @@ import kotlinx.android.synthetic.main.product_item.view.*
 class ListAdapter(
     private val products: List<Product>,
     private val context: Context,
-    private val onItemClickListener: (product: Product, position: Int) -> Unit) : Adapter<ListAdapter.viewHolder>()
+    private val onItemClickListener: (product: Product, position: Int) -> Unit) : Adapter<ListAdapter.ViewHolder>()
 {
-    override fun onBindViewHolder(holder: viewHolder, position: Int)
+    override fun onBindViewHolder(holder: ViewHolder, position: Int)
     {
         val product = products[position]
         holder?.let {
@@ -27,10 +26,10 @@ class ListAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder
     {
         val view = LayoutInflater.from(context).inflate(R.layout.product_item, parent, false)
-        return viewHolder(view)
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int
@@ -38,7 +37,7 @@ class ListAdapter(
         return products.size
     }
 
-    class viewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     {
         fun bindView(product: Product) {
             val remetente = itemView.item_remetente
@@ -60,12 +59,6 @@ class ListAdapter(
             quantidade.text = product.quantidade
 
         }
-
-       /*fun onClick(product: Product, execute: (product: Product) -> Unit) {
-            itemView.setOnClickListener {
-                execute(product)
-            }
-        } */
     }
 }
 

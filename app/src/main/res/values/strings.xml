@@ -26,4 +26,5 @@
     <string name="hint_descricao">Playstation 4, SSD M.2</string>
     <string name="ir_para_entregas">Ir para entregas</string>
     <string name="no_data_to_copy">Não há nenhum dado para se copiado! :s</string>
+    <string name="falha_ao_cadastrar_entrega">Falha ao cadastrar entrega</string>
 </resources>

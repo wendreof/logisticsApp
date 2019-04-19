@@ -5,6 +5,7 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.ViewGroup
+import android.widget.Toast
 import com.wendreof.R
 import com.wendreof.model.Product
 import com.wendreof.retrofit.service.WebClient
@@ -26,9 +27,8 @@ class ListActivity : AppCompatActivity()
             products.addAll(it)
             configureList() },
             {
-           // Toast.makeText(this, "Falha ao buscar os produtos", Toast.LENGTH_LONG).show()
-                showMSG(getString(R.string.error_to_load_products))
-
+           Toast.makeText(this, getString(R.string.error_to_load_products), Toast.LENGTH_LONG).show()
+                //showMSG(getString(R.string.error_to_load_products))
         })
 
         fab_add.setOnClickListener {
@@ -48,8 +48,7 @@ class ListActivity : AppCompatActivity()
                 configureList()
             }
         }
-        val layoutManager = StaggeredGridLayoutManager(
-            1, StaggeredGridLayoutManager.VERTICAL)
+        val layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager = layoutManager
     }
 
