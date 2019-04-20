@@ -13,6 +13,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
         <TextView android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:text="@string/location_now"
@@ -36,23 +37,26 @@
                 android:layout_height="wrap_content">
 
             <Button
-                    android:layout_width="159dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/btnAllowGPS"
                     android:onClick="startGPS"
+                    android:padding="5dp"
                     android:textColor="@color/colorWhite"
+                    android:drawableStart="@drawable/gps_fixed_white_27x27"
                     android:background="@drawable/round_btn"
                     android:text="@string/obter_localiza_o"
                     tools:ignore="ButtonStyle"/>
 
             <Button
-                    android:layout_width="178dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/btnGetLocation"
                     android:textColor="@color/colorWhite"
+                    android:padding="5dp"
                     android:background="@drawable/round_btn"
-
-                    android:text="@string/copiar_localiza_o"
+                    android:drawableEnd="@drawable/content_copy_white_27x27"
+                    android:text="Copiar"
                     tools:ignore="ButtonStyle"/>
 
         </LinearLayout>
@@ -99,21 +103,27 @@
 
             <Button
                     android:id="@+id/takePicture"
-                    android:layout_width="162dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="5dp"
                     android:textColor="@color/colorWhite"
                     android:background="@drawable/round_btn"
+                    android:drawableStart="@drawable/add_a_photo_white_24x24"
+
+
                     android:text="@string/tirar_foto"
                     tools:ignore="ButtonStyle"/>
 
             <Button
                     android:id="@+id/btnGetImage"
-                    android:layout_width="177dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
                     android:background="@drawable/round_btn"
                     android:textColor="@color/colorWhite"
-                    android:text="@string/copiar_imagem"
+                    android:text="Copiar"
+                    android:padding="5dp"
+                    android:drawableEnd="@drawable/content_copy_white_27x27"
                     tools:ignore="ButtonStyle"/>
         </LinearLayout>
 
@@ -148,21 +158,25 @@
 
             <Button
                     android:id="@+id/btnReadBarcode"
-                    android:layout_width="157dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_btn"
                     android:textColor="@color/colorWhite"
                     android:onClick="readBarCode"
                     android:text="@string/read_code"
+                    android:padding="5dp"
+                    android:drawableStart="@drawable/chrome_reader_mode_white_24x24"
                     tools:ignore="ButtonStyle"/>
 
             <Button
                     android:id="@+id/btnGetCode"
-                    android:layout_width="177dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_btn"
                     android:textColor="@color/colorWhite"
-                    android:text="@string/copy_code"
+                    android:text="Copiar"
+                    android:padding="5dp"
+                    android:drawableEnd="@drawable/content_copy_white_27x27"
                     tools:ignore="ButtonStyle"/>
         </LinearLayout>
 
@@ -180,8 +194,9 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/round_btn"
                 android:text="@string/ir_para_entregas"
+                android:padding="5dp"
                 android:textColor="@color/colorWhite"
-                android:onClick="next"
+                android:drawableEnd="@drawable/local_shipping_white_27x27"
                 tools:ignore="ButtonStyle"/>
 
     </LinearLayout>

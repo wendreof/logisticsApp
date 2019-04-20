@@ -26,7 +26,7 @@ class WebClient {
     }
 
     fun insert(
-        product: Product, success: (product: Product) -> Unit,
+        product: Product, finished: () -> Unit, success: (product: Product) -> Unit,
         failure: (throwable: Throwable) -> Unit
     )
     {
@@ -34,11 +34,13 @@ class WebClient {
         call.enqueue(callback({ response ->
             response?.body()?.let {
                 success(it)
+                finished()
             }
         },
             { throwable ->
             throwable?.let {
                 failure(it)
+                finished()
             }
         }))
     }

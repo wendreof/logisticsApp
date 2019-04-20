@@ -2,6 +2,7 @@ package com.wendreof.ui.activity
 
 import android.Manifest
 import android.app.Activity
+import android.app.ProgressDialog
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -15,10 +16,11 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.util.Base64
 import android.view.View
-import android.view.View.OnClickListener
+import android.view.View.*
 import android.view.WindowManager
 import android.widget.TextView
 import com.wendreof.R
@@ -31,22 +33,23 @@ class SplashActivity : AppCompatActivity(), OnClickListener
     private var myClipboard: ClipboardManager? = null
     private var myClip: ClipData? = null
     private val BARCODEACTIVITY = 555
+    //private val progress = ProgressDialog(this)
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        //progress.dismiss()
+
         applyScreenFull()
         startCamera()
 
-      takePicture.setOnClickListener{takePicture()}
-      btnGetImage.setOnClickListener(this)
-      btnGetLocation.setOnClickListener(this)
-      btnGetCode.setOnClickListener(this)
+        listeners()
 
-      myClipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
+        myClipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
     }
+
 
     /* :::::::::::::::::::::::::::::::::::: GPS  ::::::::::::::::::::::::::::::::::::  */
 
@@ -200,16 +203,33 @@ class SplashActivity : AppCompatActivity(), OnClickListener
                 else
                     showMSG(getString(R.string.no_data_to_copy))
             }
+            btnNext.id ->
+            {
+                val w = Intent( applicationContext, ListActivity::class.java )
+                startActivity( w )
+
+               // progress.setTitle("Buscando entregas...")
+                //progress.setMessage("Por favor, aguarde alguns instantes!")
+                // progress.show()
+            }
         }
     }
 
-    fun next(v: View)
+    private fun showMSG( msg: String )
     {
-        val w = Intent( applicationContext, ListActivity::class.java )
-        startActivity( w )
+        val snack = Snackbar.make( splashActivity, msg, 5000 )
+        snack.view.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary))
+        snack.show()
     }
 
-    private fun showMSG( msg: String ) = Snackbar.make( splashActivity, msg, Snackbar.LENGTH_LONG ).show()
+    private fun applyScreenFull() = window.addFlags( WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON )
 
-    private fun applyScreenFull() = window.addFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN )
+    private fun listeners()
+    {
+        takePicture.setOnClickListener{takePicture()}
+        btnGetImage.setOnClickListener(this)
+        btnGetLocation.setOnClickListener(this)
+        btnGetCode.setOnClickListener(this)
+        btnNext.setOnClickListener(this)
+    }
 }

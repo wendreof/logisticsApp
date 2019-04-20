@@ -66,7 +66,7 @@ class Dialog( private val viewGroup: ViewGroup, private val context: Context)
             .show()
     }
 
-    fun add(created: (created: Product) -> Unit)
+    fun add(preExecute: () -> Unit, finished:() -> Unit, created: (created: Product) -> Unit)
     {
         AlertDialog.Builder(context)
             .setTitle(context.getString(R.string.cadastrar_entrega))
@@ -91,7 +91,9 @@ class Dialog( private val viewGroup: ViewGroup, private val context: Context)
                     codBarras = codBarras,
                     quantidade = quantidade
                 )
-                WebClient().insert(product, {
+                 preExecute()
+
+                WebClient().insert(product, finished, {
                     created(it)
                 }, {
                     Toast.makeText(context, context.getString(R.string.falha_ao_cadastrar_entrega), Toast.LENGTH_LONG).show()

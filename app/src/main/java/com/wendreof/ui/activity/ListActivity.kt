@@ -2,9 +2,12 @@ package com.wendreof.ui.activity
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.ViewGroup
+import android.view.WindowManager
+import android.widget.ProgressBar
 import android.widget.Toast
 import com.wendreof.R
 import com.wendreof.model.Product
@@ -23,19 +26,28 @@ class ListActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
+        applyScreenFull()
+
         WebClient().list({
             products.addAll(it)
             configureList() },
             {
-           Toast.makeText(this, getString(R.string.error_to_load_products), Toast.LENGTH_LONG).show()
-                //showMSG(getString(R.string.error_to_load_products))
+           //Toast.makeText(this, getString(R.string.error_to_load_products), Toast.LENGTH_LONG).show()
+                showMSG(getString(R.string.error_to_load_products))
         })
 
         fab_add.setOnClickListener {
             Dialog(window.decorView as ViewGroup, this)
-                .add {
+                .add({
+                    note_list_progress.visibility = ProgressBar.VISIBLE
+                },
+                {
+                    note_list_progress.visibility = ProgressBar.GONE
+                })
+                {
                     products.add(it)
-                    configureList() }
+                    configureList()
+                }
         }
     }
 
@@ -52,7 +64,14 @@ class ListActivity : AppCompatActivity()
         recyclerView.layoutManager = layoutManager
     }
 
-    private fun showMSG( msg: String ) = Snackbar.make( splashActivity, msg, Snackbar.LENGTH_LONG ).show()
+    private fun showMSG( msg: String )
+    {
+        val snack = Snackbar.make( activityList, msg, 5000 )
+        snack.view.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary))
+        snack.show()
+    }
+
+    private fun applyScreenFull() = window.addFlags( WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON )
 
 }
 
